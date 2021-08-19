@@ -9,7 +9,7 @@ const ThreeSphere: FunctionComponent<IThreeSphereProps> = ({ radius }) => {
   return (
     <mesh>
       <sphereGeometry args={[radius, 32, 32]} />
-      {/* <meshToonMaterial color={theme.colors.three.sphere} /> */}
+      {/* <meshBasicMaterial color={theme.colors.three.sphere} /> */}
       <meshPhongMaterial
         color={theme.colors.three.sphere}
         flatShading
