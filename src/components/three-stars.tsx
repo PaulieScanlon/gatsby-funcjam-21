@@ -13,7 +13,7 @@ const ThreeStars: FunctionComponent<IThreeStarsProps> = () => {
 
   return (
     <mesh ref={mesh}>
-      <Stars radius={100} depth={20} count={500} factor={7} fade />
+      <Stars radius={90} depth={20} count={600} factor={7} fade />
     </mesh>
   )
 }

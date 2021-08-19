@@ -14,6 +14,8 @@ const ThreeSphere: FunctionComponent<IThreeSphereProps> = ({ radius }) => {
         color={theme.colors.three.sphere}
         flatShading
         shininess={100}
+        transparent={true}
+        opacity={0.8}
       />
     </mesh>
   )
