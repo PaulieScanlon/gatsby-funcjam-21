@@ -17,6 +17,7 @@ const theme = {
     grey1: '#eaeaea',
     grey2: '#f3f2f2',
     grey3: '#f7f7f7',
+    grey4: '#999999',
     three: {
       background: '#000000',
       sphere: '#3d313b',
@@ -36,11 +37,12 @@ const theme = {
   fontWeights: {
     heading: 700,
     body: 400,
+    bold: 700,
   },
 
   lineHeights: {
-    heading: '1.4em',
-    body: '1.5em',
+    heading: '1.2em',
+    body: '1.3em',
   },
 
   letterSpacings: [
@@ -53,12 +55,18 @@ const theme = {
     '.55rem',
   ],
 
-  fontSizes: ['.75rem', '1rem', '2rem', '3rem', '4rem', '5rem', '6rem'],
+  fontSizes: ['.85rem', '1rem', '2rem', '3rem', '4rem', '5rem', '6rem'],
+
+  shadows: {
+    card: '0px 0px 30px -2px rgba(0,0,0,0.10)',
+    focus: '0px 0px 1px 3px rgba(0,0,255,0.90)',
+  },
 
   styles: {
     root: {
       fontFamily: 'body',
       fontWeight: 'body',
+      backgroundColor: 'black',
     },
     header: {
       position: 'fixed',
@@ -81,6 +89,9 @@ const theme = {
   text: {
     default: {
       lineHeight: 'body',
+    },
+    small: {
+      fontSize: 0,
     },
     heading: {
       h1: {
@@ -154,6 +165,57 @@ const theme = {
             WebkitTextStrokeWidth: '5px',
           },
         },
+      },
+    },
+  },
+
+  radii: [8, 24, 48],
+
+  buttons: {
+    default: {
+      borderRadius: 1,
+      cursor: 'pointer',
+      ':hover:not(:disabled)': {
+        opacity: 0.9,
+      },
+      ':focus': {
+        outline: 'none',
+        boxShadow: 'focus',
+      },
+      ':disabled': {
+        color: 'grey4',
+        cursor: 'not-allowed',
+        backgroundColor: 'grey1',
+      },
+    },
+
+    primary: {
+      variant: 'buttons.default',
+      backgroundColor: 'tertiary',
+      color: 'black1',
+      fontWeight: 'bold',
+    },
+  },
+
+  cards: {
+    primary: {
+      borderRadius: 0,
+      p: [3, 4],
+      boxShadow: 'card',
+    },
+  },
+
+  forms: {
+    textarea: {
+      borderRadius: 0,
+      borderColor: 'transparent',
+      backgroundColor: 'grey1',
+      color: 'black',
+      fontFamily: 'body',
+      p: 3,
+      ':focus': {
+        outline: 'none',
+        boxShadow: 'focus',
       },
     },
   },
