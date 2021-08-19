@@ -26,7 +26,7 @@ const IndexPage: FunctionComponent = () => {
             <GroovyHeading
               as="h1"
               variant="heading.h1"
-              textAlign="center"
+              textAlign={['center', 'left']}
               justifyContent="center"
               text={['Groovy', 'Analytics']}
             />

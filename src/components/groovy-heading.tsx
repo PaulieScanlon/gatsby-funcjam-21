@@ -1,6 +1,8 @@
 import React, { Fragment, FunctionComponent } from 'react'
 import { Heading, Box, ThemeUIStyleObject } from 'theme-ui'
 
+type TextAlign = 'left' | 'right' | 'center'
+
 interface IGroovyHeadingProps {
   /** Text to display */
   text: string[]
@@ -13,7 +15,7 @@ interface IGroovyHeadingProps {
   /** CSS -webkit-text-stroke-color */
   strokeColor?: string
   /** CSS text-align */
-  textAlign?: 'left' | 'right' | 'center'
+  textAlign?: TextAlign | TextAlign[]
   /** CSS justify-content */
   justifyContent?: 'flex-start' | 'flex-end' | 'center'
   /** Theme UI sx prop */
