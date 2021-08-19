@@ -48,7 +48,7 @@ const ThreeScene: FunctionComponent = () => {
         zIndex: 'canvas',
         canvas: {
           width: '100%',
-          height: ['auto', 'canvas'],
+          height: ['70vh', 'canvas'],
           cursor: 'move',
           opacity: hasLoaded ? 1 : 0,
         },
