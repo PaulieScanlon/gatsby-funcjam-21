@@ -1,6 +1,11 @@
 import React, { FunctionComponent, useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Canvas } from '@react-three/fiber'
+import {
+  EffectComposer,
+  DepthOfField,
+  Vignette,
+} from '@react-three/postprocessing'
 // import { OrbitControls } from '@react-three/drei'
 import { Box } from 'theme-ui'
 
@@ -58,14 +63,18 @@ const ThreeScene: FunctionComponent = () => {
         onCreated={handleLoad}
       >
         <color attach="background" args={[theme.colors.three.background]} />
-        {/* <OrbitControls
-          enableRotate={true}
-          enableZoom={false}
-          enablePan={false}
-        /> */}
         <ambientLight intensity={0.5} />
         <ThreeStars />
         <ThreeMesh locations={nodes} />
+        <EffectComposer>
+          <DepthOfField
+            focusDistance={0}
+            focalLength={0.8}
+            bokehScale={1.8}
+            height={theme.sizes.canvas}
+          />
+          <Vignette eskil={false} offset={0.2} darkness={1} />
+        </EffectComposer>
       </Canvas>
     </Box>
   )
