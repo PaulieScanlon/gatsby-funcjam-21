@@ -32,7 +32,7 @@ const IndexPage: FunctionComponent = () => {
             />
             <Text as="p" sx={{ color: 'text', textAlign: 'center' }}>
               I'm just collecting analytics data at the moment. <br />
-              Come back soon, and you should see your location on the globe.
+              Come back soon and you'll see your location on the globe.
             </Text>
           </Grid>
         </Grid>
