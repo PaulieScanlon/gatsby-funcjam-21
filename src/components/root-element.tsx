@@ -17,22 +17,22 @@ const RootElement: FunctionComponent = ({ children }) => {
           }
           @font-face {
             font-family: 'GvTime-Regular';
-            src: url('/fonts/GvTime-Regular.woff2.woff') format('woff'),
-              url('/fonts/GvTime-Regular.woff2.woff2') format('woff2');
+            src: url('/fonts/Gvtime-Regular.woff') format('woff'),
+              url('/fonts/Gvtime-Regular.woff2') format('woff2');
             font-weight: 400;
             font-style: normal;
           }
           @font-face {
             font-family: 'Roboto-Bold';
-            src: url('/fonts/Roboto-Bold.woff2.woff') format('woff'),
-              url('/fonts/Roboto-Bold.woff2.woff2') format('woff2');
+            src: url('/fonts/Roboto-Bold.woff') format('woff'),
+              url('/fonts/Roboto-Bold.woff2') format('woff2');
             font-weight: 700;
             font-style: normal;
           }
           @font-face {
             font-family: 'Roboto-Regular';
-            src: url('/fonts/Roboto-Regular.woff2.woff') format('woff'),
-              url('/fonts/Roboto-Regular.woff2.woff2') format('woff2');
+            src: url('/fonts/Roboto-Regular.woff') format('woff'),
+              url('/fonts/Roboto-Regular.woff2') format('woff2');
             font-weight: 400;
             font-style: normal;
           }
