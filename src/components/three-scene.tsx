@@ -7,6 +7,7 @@ import { Box } from 'theme-ui'
 import theme from '../gatsby-plugin-theme-ui'
 
 import ThreeMesh from './three-mesh'
+import ThreeStars from './three-stars'
 
 const ThreeScene: FunctionComponent = () => {
   const [hasLoaded, setHasLoaded] = useState(false)
@@ -63,6 +64,7 @@ const ThreeScene: FunctionComponent = () => {
           enablePan={false}
         /> */}
         <ambientLight intensity={0.5} />
+        <ThreeStars />
         <ThreeMesh locations={nodes} />
       </Canvas>
     </Box>
