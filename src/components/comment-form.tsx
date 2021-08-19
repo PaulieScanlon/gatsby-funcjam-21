@@ -22,7 +22,7 @@ const CommentForm: FunctionComponent = () => {
       const response = await axios.post('/api/add-comment', {
         user: user.name,
         comment: comment,
-        data: new Date(),
+        date: new Date(),
       })
       setComment('')
       setIsSubmitting(false)
