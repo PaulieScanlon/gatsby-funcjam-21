@@ -9,9 +9,16 @@ import axios from 'axios'
 import { Card, Grid, Box, Text, Textarea, Button, Link } from 'theme-ui'
 
 import GroovyHeading from '../components/groovy-heading'
+import { useEffect } from 'react'
 
 const CommentForm: FunctionComponent = () => {
-  const { isAuthenticated, user, isLoading, loginWithRedirect } = useAuth0()
+  const {
+    isAuthenticated,
+    user,
+    isLoading,
+    loginWithRedirect,
+    getAccessTokenSilently,
+  } = useAuth0()
   const [comment, setComment] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [responseMessage, setResponseMessage] = useState()
@@ -19,11 +26,23 @@ const CommentForm: FunctionComponent = () => {
   const handleSubmit = async () => {
     setIsSubmitting(true)
     try {
-      const response = await axios.post('/api/add-comment', {
-        user: user.name,
-        comment: comment,
-        date: new Date(),
+      const accessToken = await getAccessTokenSilently({
+        audience: process.env.GATSBY_AUTH0_AUDIENCE,
       })
+
+      const response = await axios.post(
+        '/api/add-comment',
+        {
+          user: user.name,
+          comment: comment,
+          date: new Date(),
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      )
       setComment('')
       setIsSubmitting(false)
       setResponseMessage(response.data.message)

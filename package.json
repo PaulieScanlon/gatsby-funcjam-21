@@ -54,6 +54,7 @@
     "gatsby-plugin-react-helmet": "^4.11.0",
     "gatsby-plugin-theme-ui": "^0.10.1",
     "googleapis": "^84.0.0",
+    "jwks-rsa": "^2.0.4",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
