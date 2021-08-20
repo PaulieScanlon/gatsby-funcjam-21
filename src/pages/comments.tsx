@@ -1,7 +1,6 @@
-import React, { FunctionComponent, useState } from 'react'
+import React, { FunctionComponent, useState, useEffect } from 'react'
 import axios from 'axios'
 import { Container, Heading, Grid } from 'theme-ui'
-import { useEffect } from 'react'
 
 const CommentsPage: FunctionComponent = () => {
   const [comments, setComments] = useState('Loading...')
@@ -33,7 +32,9 @@ const CommentsPage: FunctionComponent = () => {
           py: 5,
         }}
       >
-        <Heading as="h1">Comments</Heading>
+        <Heading as="h1" variant="heading.h1">
+          Comments
+        </Heading>
         <pre>{JSON.stringify(comments, null, 2)}</pre>
       </Grid>
     </Container>
