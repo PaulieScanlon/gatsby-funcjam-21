@@ -115,7 +115,7 @@ const CommentForm: FunctionComponent = () => {
                     mx: 'auto',
                   }}
                 >
-                  <Button onClick={() => loginWithRedirect()}>
+                  <Button onClick={loginWithRedirect}>
                     Login with Twitter
                   </Button>
                 </Box>
