@@ -23,6 +23,8 @@ exports.sourceNodes = async ({
     dimensions: 'ga:city,ga:latitude,ga:longitude,ga:country,ga:countryIsoCode',
   })
 
+  // console.log(response.data.rows)
+
   const locations = response.data.rows
     .map(([city, lat, lng, country, countryIsoCode, count]) => {
       return {

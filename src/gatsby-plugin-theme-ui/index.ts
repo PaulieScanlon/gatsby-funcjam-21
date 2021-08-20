@@ -17,7 +17,8 @@ const theme = {
     grey1: '#eaeaea',
     grey2: '#f3f2f2',
     grey3: '#f7f7f7',
-    grey4: '#999999',
+    grey4: '#cccccc',
+    grey5: '#999999',
     three: {
       background: '#000000',
       sphere: '#3d313b',
@@ -59,8 +60,11 @@ const theme = {
 
   shadows: {
     card: '0px 0px 30px -2px rgba(0,0,0,0.10)',
+    dropdown: '0px 0px 30px -2px rgba(0,0,0,0.10)',
     focus: '0px 0px 1px 3px rgba(0,0,255,0.90)',
   },
+
+  radii: [8, 24, 48],
 
   styles: {
     root: {
@@ -74,6 +78,7 @@ const theme = {
       height: 'header',
       display: 'flex',
       alignItems: 'center',
+      justifyContent: 'space-between',
       borderBottomWidth: '1px',
       borderBottomStyle: 'solid',
       borderBottomColor: 'grey1',
@@ -83,6 +88,9 @@ const theme = {
     },
     main: {
       pt: (theme) => theme.sizes.header,
+    },
+    a: {
+      variant: 'links',
     },
   },
 
@@ -169,7 +177,10 @@ const theme = {
     },
   },
 
-  radii: [8, 24, 48],
+  links: {
+    color: 'primary',
+    fontWeight: 'bold',
+  },
 
   buttons: {
     default: {
@@ -183,7 +194,7 @@ const theme = {
         boxShadow: 'focus',
       },
       ':disabled': {
-        color: 'grey4',
+        color: 'grey5',
         cursor: 'not-allowed',
         backgroundColor: 'grey1',
       },
@@ -194,6 +205,13 @@ const theme = {
       backgroundColor: 'tertiary',
       color: 'black1',
       fontWeight: 'bold',
+    },
+
+    dropdownItem: {
+      variant: 'buttons.default',
+      borderRadius: 0,
+      backgroundColor: 'grey4',
+      color: 'black1',
     },
   },
 
@@ -220,10 +238,18 @@ const theme = {
     },
   },
 
+  images: {
+    avatar: {
+      width: 'avatar',
+      height: 'avatar',
+    },
+  },
+
   sizes: {
     container: 1140,
     canvas: 600,
     header: 64,
+    avatar: 32,
     full: '100%',
   },
 
