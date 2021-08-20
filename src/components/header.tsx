@@ -40,7 +40,13 @@ const Header: FunctionComponent = () => {
             {isAuthenticated ? (
               <Fragment>
                 <Dropdown trigger={<Avatar src={user.picture} />}>
-                  <MenuItem onSelect={logout}>Logout</MenuItem>
+                  <MenuItem
+                    onSelect={() =>
+                      logout({ returnTo: window.location.origin })
+                    }
+                  >
+                    Logout
+                  </MenuItem>
                 </Dropdown>
               </Fragment>
             ) : null}
