@@ -62,3 +62,10 @@ export interface ReactionSum {
     count: number
   }
 }
+
+export interface StatObject {
+  /** The name of the statistic */
+  name: string
+  /** The count of the statistic */
+  count: number
+}

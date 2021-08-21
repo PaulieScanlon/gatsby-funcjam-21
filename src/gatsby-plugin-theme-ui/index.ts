@@ -44,6 +44,7 @@ const theme = {
   lineHeights: {
     heading: '1.2em',
     body: '1.3em',
+    alt: '1em',
   },
 
   letterSpacings: [
