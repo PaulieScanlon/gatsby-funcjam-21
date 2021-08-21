@@ -1,5 +1,5 @@
 import React, { Fragment, FunctionComponent } from 'react'
-import { Container, Grid, Box, Text } from 'theme-ui'
+import { Container, Grid, Box, Text, Link } from 'theme-ui'
 
 import ThreeScene from '../components/three-scene'
 import GroovyHeading from '../components/groovy-heading'
@@ -12,11 +12,7 @@ import SvgRepeatingCircleBackground from '../components/svg-repeating-circle-bac
 const IndexPage: FunctionComponent = () => {
   return (
     <Fragment>
-      <Container
-        sx={{
-          pointerEvents: 'none',
-        }}
-      >
+      <Container>
         <Grid
           sx={{
             placeItems: 'center',
@@ -35,9 +31,30 @@ const IndexPage: FunctionComponent = () => {
               justifyContent="center"
               text={['Groovy', 'Analytics']}
             />
-            <Text as="p" sx={{ color: 'text', textAlign: 'center' }}>
-              I'm just collecting analytics data at the moment. <br />
-              Come back soon and you'll see your location on the globe.
+            <Text
+              sx={{
+                color: 'background',
+                mx: 'auto',
+              }}
+            >
+              A{' '}
+              <Link
+                href="https://twitter.com/hashtag/FuncJam?src=hashtag_click"
+                target="_blank"
+                rel="noopener"
+                sx={{ color: 'primary', fontWeight: 'bold' }}
+              >
+                #FuncJam
+              </Link>{' '}
+              site by{' '}
+              <Link
+                href="https://twitter.com/PaulieScanlon"
+                target="_blank"
+                rel="noopener"
+                sx={{ color: 'tertiary', fontWeight: 'bold' }}
+              >
+                @PaulieScanlon
+              </Link>
             </Text>
           </Grid>
         </Grid>
@@ -124,6 +141,23 @@ const IndexPage: FunctionComponent = () => {
             </Box>
 
             <Reactions />
+
+            <Text
+              sx={{
+                color: 'background',
+                mx: 'auto',
+              }}
+            >
+              Data storage is provided by the funky folks at{' '}
+              <Link
+                href="https://fauna.com/"
+                target="_blank"
+                rel="noopener"
+                sx={{ color: 'primary', fontWeight: 'bold' }}
+              >
+                Fauna
+              </Link>
+            </Text>
           </Grid>
         </Container>
         <SvgRepeatingCircleBackground backgroundColor="black" opacity={0.4} />
