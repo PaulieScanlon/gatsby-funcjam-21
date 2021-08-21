@@ -65,7 +65,7 @@ const IndexPage: FunctionComponent = () => {
 
       <ThreeScene />
 
-      {/* Gel Stats -- start */}
+      {/* Geo Stats -- start */}
       <Box
         as="section"
         sx={{
@@ -142,7 +142,7 @@ const IndexPage: FunctionComponent = () => {
             <TechStats />
           </Grid>
         </Container>
-        <SvgRepeatingCircleBackground backgroundColor="black" opacity={0.4} />
+        <SvgRepeatingCircleBackground backgroundColor="black" opacity={0.25} />
       </Box>
       {/* Tech Stats  --end */}
 
@@ -240,7 +240,7 @@ const IndexPage: FunctionComponent = () => {
             </Text>
           </Grid>
         </Container>
-        <SvgRepeatingCircleBackground backgroundColor="black" opacity={0.4} />
+        <SvgRepeatingCircleBackground backgroundColor="black" opacity={0.25} />
       </Box>
       {/* Reactions --end */}
 

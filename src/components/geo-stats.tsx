@@ -71,7 +71,9 @@ const GeoStats: FunctionComponent = () => {
                   strokeColor={strokeColor}
                   text={[stat]}
                 />
-                <Text sx={{ textAlign: 'center' }}>{name}</Text>
+                <Text sx={{ textAlign: 'center', textTransform: 'capitalize' }}>
+                  {name}
+                </Text>
               </Grid>
               <Grid
                 sx={{

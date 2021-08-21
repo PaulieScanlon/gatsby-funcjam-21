@@ -75,7 +75,13 @@ const TechStats: FunctionComponent = () => {
                   strokeColor={strokeColor}
                   text={[stat]}
                 />
-                <Text sx={{ color: 'background', textAlign: 'center' }}>
+                <Text
+                  sx={{
+                    color: 'background',
+                    textAlign: 'center',
+                    textTransform: 'capitalize',
+                  }}
+                >
                   {name}
                 </Text>
               </Grid>
