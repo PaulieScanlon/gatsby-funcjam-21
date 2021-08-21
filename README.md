@@ -33,11 +33,3 @@ You can deploy this example on Gatsby Cloud by copying the example into a new re
 Read the Gatsby [functions docs](https://www.gatsbyjs.com/docs/reference/functions/).
 Check out this video all about Gatsby functions
 Take a look at the Functions Use Cases over [here](https://www.gatsbyjs.com/products/cloud/functions/).
-
-## Auth0
-
-https://townhall.hashnode.com/auth0-hackathon
-
-### Google Analytics Metrics Explorer
-
-https://ga-dev-tools.web.app/dimensions-metrics-explorer/

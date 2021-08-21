@@ -3,6 +3,7 @@ const { google } = require('googleapis')
 const START_DATE = '2021-08-18'
 const END_DATE = 'today'
 const METRIC = 'ga:pageviews'
+const FILTER = 'ga:city!=Worthing;ga:city!=Hastings'
 
 const LOCATIONS = 'locations'
 const GEO = 'geo'
@@ -37,6 +38,7 @@ exports.sourceNodes = async ({
     'end-date': END_DATE,
     metrics: METRIC,
     dimensions: 'ga:city',
+    filters: FILTER,
   })
 
   const stat_country = await google.analytics('v3').data.ga.get({
@@ -46,6 +48,7 @@ exports.sourceNodes = async ({
     'end-date': END_DATE,
     metrics: METRIC,
     dimensions: 'ga:country',
+    filters: FILTER,
   })
 
   const stat_continent = await google.analytics('v3').data.ga.get({
@@ -55,6 +58,7 @@ exports.sourceNodes = async ({
     'end-date': END_DATE,
     metrics: METRIC,
     dimensions: 'ga:continent',
+    filters: FILTER,
   })
 
   const stat_browser = await google.analytics('v3').data.ga.get({
