@@ -1,6 +1,6 @@
 const theme = {
   colors: {
-    text: '#ffffff',
+    text: '#000000',
     background: '#ffffff',
     primary: '#ec008d',
     secondary: '#fff301',
@@ -56,7 +56,7 @@ const theme = {
     '.55rem',
   ],
 
-  fontSizes: ['.85rem', '1rem', '2rem', '3rem', '4rem', '5rem', '6rem'],
+  fontSizes: ['.85rem', '1rem', '1.8rem', '2.6rem', '2.8rem', '5rem', '6rem'],
 
   shadows: {
     card: '0px 0px 30px -2px rgba(0,0,0,0.10)',
@@ -85,6 +85,7 @@ const theme = {
       py: 2,
       px: 3,
       backgroundColor: 'background',
+      zIndex: 'header',
     },
     main: {
       pt: (theme) => theme.sizes.header,
@@ -220,6 +221,7 @@ const theme = {
       borderRadius: 0,
       p: [3, 4],
       boxShadow: 'card',
+      backgroundColor: 'background',
     },
   },
 
@@ -260,6 +262,7 @@ const theme = {
   },
 
   zIndices: {
+    header: 999,
     canvas: -1,
   },
 }

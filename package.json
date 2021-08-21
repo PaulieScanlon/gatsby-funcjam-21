@@ -45,6 +45,7 @@
     "country-flag-colors": "^0.0.3",
     "country-flag-icons": "^1.4.3",
     "d3": "^7.0.1",
+    "date-fns": "^2.23.0",
     "dotenv": "^10.0.0",
     "express-jwt": "^6.1.0",
     "faunadb": "^4.3.0",
