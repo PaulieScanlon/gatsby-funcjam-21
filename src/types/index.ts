@@ -25,10 +25,10 @@ export interface ILocation {
   count: Count
 }
 
-export type CommentData = string[]
+export type StringData = string[]
 
 export interface CommentResponse {
-  data: CommentData[]
+  data: StringData[]
 }
 
 export interface CommentResult {
@@ -36,10 +36,29 @@ export interface CommentResult {
   ref: string
   /** Twitter Userrs name */
   user: string
-  /** Comment left by user */
+  /** Comment submitted by user */
   comment: string
   /** Date comment submitted */
   date: string
   /** Moderated value */
   approved?: boolean
+}
+
+export interface ReactionResponse {
+  data: StringData[]
+}
+
+export interface ReactionResult {
+  /** Fauna Ref -- not used */
+  ref: string
+  /** Reaction submitted by user */
+  reaction: string
+  /** Date reaction submitted */
+  date: string
+}
+
+export interface ReactionSum {
+  [key: string]: {
+    count: number
+  }
 }

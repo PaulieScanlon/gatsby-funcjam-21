@@ -5,6 +5,8 @@ import ThreeScene from '../components/three-scene'
 import GroovyHeading from '../components/groovy-heading'
 import CommentForm from '../components/comment-form'
 import Comments from '../components/comments'
+import Reactions from '../components/reactions'
+
 import SvgRepeatingCircleBackground from '../components/svg-repeating-circle-background'
 
 const IndexPage: FunctionComponent = () => {
@@ -40,12 +42,15 @@ const IndexPage: FunctionComponent = () => {
           </Grid>
         </Grid>
       </Container>
+
       <ThreeScene />
+
+      {/* Comments -- start */}
       <Box
         as="section"
         sx={{
           position: 'relative',
-
+          // backgroundColor: 'background',
           py: 5,
         }}
       >
@@ -75,8 +80,55 @@ const IndexPage: FunctionComponent = () => {
             <Comments />
           </Grid>
         </Container>
-        <SvgRepeatingCircleBackground />
+        <SvgRepeatingCircleBackground backgroundColor="background" />
       </Box>
+      {/* Comments --end */}
+
+      {/* Reactions -- start */}
+      <Box
+        as="section"
+        sx={{
+          position: 'relative',
+
+          py: 5,
+        }}
+      >
+        <Container>
+          <Grid
+            sx={{
+              gap: 5,
+            }}
+          >
+            <Box>
+              <GroovyHeading
+                as="h2"
+                variant="heading.h2"
+                color="background"
+                strokeColor="primary"
+                textAlign="center"
+                justifyContent="center"
+                text={['Gimmie', 'some', 'skin!']}
+              />
+              <Text
+                as="p"
+                sx={{
+                  color: 'background',
+                  textAlign: 'center',
+                  fontWeight: 'bold',
+                }}
+              >
+                No Twitter? That aint no thang, leave a reaction.
+                <br />
+                Peace, love, and granola!
+              </Text>
+            </Box>
+
+            <Reactions />
+          </Grid>
+        </Container>
+        <SvgRepeatingCircleBackground backgroundColor="black" opacity={0.4} />
+      </Box>
+      {/* Reactions --end */}
     </Fragment>
   )
 }

@@ -2,6 +2,7 @@ import React, { Fragment, FunctionComponent } from 'react'
 import { Heading, Box, ThemeUIStyleObject } from 'theme-ui'
 
 type TextAlign = 'left' | 'right' | 'center'
+type justifyContent = 'flex-start' | 'flex-end' | 'center'
 
 interface IGroovyHeadingProps {
   /** Text to display */
@@ -17,7 +18,7 @@ interface IGroovyHeadingProps {
   /** CSS text-align */
   textAlign?: TextAlign | TextAlign[]
   /** CSS justify-content */
-  justifyContent?: 'flex-start' | 'flex-end' | 'center'
+  justifyContent?: justifyContent | justifyContent[]
   /** Theme UI sx prop */
   sx?: ThemeUIStyleObject
 }
@@ -55,6 +56,7 @@ const GroovyHeading: FunctionComponent<IGroovyHeadingProps> = ({
                 placeItems: 'center',
                 gridTemplateAreas: '"text"',
                 textAlign: textAlign,
+                textTransform: 'capitalize',
                 '::before': {
                   content: 'attr(data-text)',
                   gridArea: 'text',
@@ -70,6 +72,7 @@ const GroovyHeading: FunctionComponent<IGroovyHeadingProps> = ({
                 sx={{
                   textAlign: textAlign,
                   gridArea: 'text',
+                  textTransform: 'capitalize',
                 }}
               >
                 {string}
