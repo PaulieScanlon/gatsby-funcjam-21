@@ -61,7 +61,7 @@ const GroovyHeading: FunctionComponent<IGroovyHeadingProps> = ({
                   content: 'attr(data-text)',
                   gridArea: 'text',
                   background: (theme) =>
-                    `no-repeat linear-gradient(${theme.colors[strokeColor]}, ${theme.colors[strokeColor]}) 50% 50%/70% 15%`,
+                    `no-repeat linear-gradient(${theme.colors[strokeColor]}, ${theme.colors[strokeColor]}) 50% 50%/80% 15%`,
                   WebkitTextStrokeColor: (theme) => theme.colors[strokeColor],
                 },
                 color: color,

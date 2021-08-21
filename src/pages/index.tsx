@@ -7,6 +7,8 @@ import CommentForm from '../components/comment-form'
 import Comments from '../components/comments'
 import Reactions from '../components/reactions'
 import NewsletterForm from '../components/newsletter-form'
+import GeoStats from '../components/geo-stats'
+import TechStats from '../components/tech-stats'
 
 import SvgRepeatingCircleBackground from '../components/svg-repeating-circle-background'
 
@@ -63,12 +65,93 @@ const IndexPage: FunctionComponent = () => {
 
       <ThreeScene />
 
+      {/* Gel Stats -- start */}
+      <Box
+        as="section"
+        sx={{
+          position: 'relative',
+          py: 6,
+        }}
+      >
+        <Container>
+          <Grid
+            sx={{
+              gap: 5,
+            }}
+          >
+            <Box>
+              <GroovyHeading
+                as="h2"
+                variant="heading.h2"
+                color="primary"
+                strokeColor="black1"
+                textAlign="center"
+                justifyContent="center"
+                text={['Keep', 'on', "steppin'"]}
+              />
+              <Text as="p" sx={{ textAlign: 'center', fontWeight: 'bold' }}>
+                Some real far out folks have visited this site,
+                <br />
+                and here’s where they’re from.
+              </Text>
+            </Box>
+            <GeoStats />
+          </Grid>
+        </Container>
+        <SvgRepeatingCircleBackground backgroundColor="background" />
+      </Box>
+      {/* Geo Stats --end */}
+
+      {/* Tech Stats -- start */}
+      <Box
+        as="section"
+        sx={{
+          position: 'relative',
+          py: 6,
+        }}
+      >
+        <Container>
+          <Grid
+            sx={{
+              gap: 5,
+            }}
+          >
+            <Box>
+              <GroovyHeading
+                as="h2"
+                variant="heading.h2"
+                color="background"
+                strokeColor="primary"
+                textAlign="center"
+                justifyContent="center"
+                text={['Right', 'on']}
+              />
+              <Text
+                as="p"
+                sx={{
+                  color: 'background',
+                  textAlign: 'center',
+                  fontWeight: 'bold',
+                }}
+              >
+                Technology these days is off the hook,
+                <br />
+                here’s the faves.
+              </Text>
+            </Box>
+            <TechStats />
+          </Grid>
+        </Container>
+        <SvgRepeatingCircleBackground backgroundColor="black" opacity={0.4} />
+      </Box>
+      {/* Tech Stats  --end */}
+
       {/* Comments -- start */}
       <Box
         as="section"
         sx={{
           position: 'relative',
-          py: 5,
+          py: 6,
         }}
       >
         <Container>
@@ -106,8 +189,7 @@ const IndexPage: FunctionComponent = () => {
         as="section"
         sx={{
           position: 'relative',
-
-          py: 5,
+          py: 6,
         }}
       >
         <Container>
@@ -167,7 +249,7 @@ const IndexPage: FunctionComponent = () => {
         as="section"
         sx={{
           position: 'relative',
-          py: 5,
+          py: 6,
         }}
       >
         <Container>

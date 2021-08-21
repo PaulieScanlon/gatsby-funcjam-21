@@ -3,8 +3,9 @@ import axios from 'axios'
 import { Grid, Box, Flex, Card, Button } from 'theme-ui'
 import { SvgIcon } from 'react-svg-bubble-slider'
 
-import { ReactionSum } from '../types'
 import GroovyHeading from './groovy-heading'
+
+import { ReactionSum } from '../types'
 
 const getCardPops = (reaction: string) => {
   const config = {
@@ -67,7 +68,7 @@ const Reactions: FunctionComponent = () => {
       }}
     >
       {reactions
-        ? Object.entries(reactions).map(([reaction, object], index) => {
+        ? Object.entries(reactions).map(([reaction, object], index: number) => {
             const { strokeColor, fillColor } = getCardPops(reaction)
             const { count } = object
 
