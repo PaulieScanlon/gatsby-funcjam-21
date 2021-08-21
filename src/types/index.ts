@@ -24,3 +24,22 @@ export interface ILocation {
   /** Page Views count */
   count: Count
 }
+
+export type CommentData = string[]
+
+export interface CommentResponse {
+  data: CommentData[]
+}
+
+export interface CommentResult {
+  /** Fauna Ref -- not used */
+  ref: string
+  /** Twitter Userrs name */
+  user: string
+  /** Comment left by user */
+  comment: string
+  /** Date comment submitted */
+  date: string
+  /** Moderated value */
+  approved?: boolean
+}

@@ -4,6 +4,8 @@ import { Container, Grid, Box, Text } from 'theme-ui'
 import ThreeScene from '../components/three-scene'
 import GroovyHeading from '../components/groovy-heading'
 import CommentForm from '../components/comment-form'
+import Comments from '../components/comments'
+import SvgRepeatingCircleBackground from '../components/svg-repeating-circle-background'
 
 const IndexPage: FunctionComponent = () => {
   return (
@@ -42,7 +44,8 @@ const IndexPage: FunctionComponent = () => {
       <Box
         as="section"
         sx={{
-          backgroundColor: 'grey3',
+          position: 'relative',
+
           py: 5,
         }}
       >
@@ -62,18 +65,17 @@ const IndexPage: FunctionComponent = () => {
                 justifyContent="center"
                 text={['Jive', "talkin'"]}
               />
-              <Text
-                as="p"
-                sx={{ color: 'black', textAlign: 'center', fontWeight: 'bold' }}
-              >
+              <Text as="p" sx={{ textAlign: 'center', fontWeight: 'bold' }}>
                 If you aint just woofin leave a comment,
                 <br />
                 but make it fab -- square biz?
               </Text>
             </Box>
             <CommentForm />
+            <Comments />
           </Grid>
         </Container>
+        <SvgRepeatingCircleBackground />
       </Box>
     </Fragment>
   )

@@ -6,10 +6,18 @@ import React, {
 } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 import axios from 'axios'
-import { Card, Grid, Box, Text, Textarea, Button, Link } from 'theme-ui'
+import {
+  Card,
+  Grid,
+  Box,
+  Text,
+  Textarea,
+  Button,
+  Link,
+  Spinner,
+} from 'theme-ui'
 
 import GroovyHeading from '../components/groovy-heading'
-import { useEffect } from 'react'
 
 const CommentForm: FunctionComponent = () => {
   const {
@@ -21,7 +29,12 @@ const CommentForm: FunctionComponent = () => {
   } = useAuth0()
   const [comment, setComment] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [responseMessage, setResponseMessage] = useState()
+  const [response, setResponse] = useState({
+    color: 'black',
+    message: '',
+    hasError: false,
+    isSuccess: false,
+  })
 
   const handleSubmit = async () => {
     setIsSubmitting(true)
@@ -43,12 +56,21 @@ const CommentForm: FunctionComponent = () => {
           },
         }
       )
-      setComment('')
       setIsSubmitting(false)
-      setResponseMessage(response.data.message)
+      setResponse({
+        color: 'success',
+        message: response.data.message,
+        hasError: false,
+        isSuccess: true,
+      })
     } catch (error) {
       setIsSubmitting(false)
-      setResponseMessage(error.data.message)
+      setResponse({
+        color: 'error',
+        message: error.data.message,
+        hasError: true,
+        isSuccess: false,
+      })
     }
   }
 
@@ -61,31 +83,47 @@ const CommentForm: FunctionComponent = () => {
       <Grid
         sx={{
           gap: 3,
+          minHeight: 200,
         }}
       >
-        {!isLoading ? (
+        {isLoading ? (
+          <Grid sx={{ placeItems: 'center' }}>
+            <Spinner />
+          </Grid>
+        ) : (
           <Fragment>
-            <GroovyHeading
-              as="h5"
-              variant="heading.h5"
-              color="success"
-              strokeColor="black1"
-              textAlign={isAuthenticated ? 'left' : 'center'}
-              justifyContent={isAuthenticated ? 'flex-start' : 'center'}
-              text={isAuthenticated ? ['Comment'] : ['Leave', 'a', 'comment']}
-            />
-
             {isAuthenticated ? (
-              <Fragment>
-                <Textarea
-                  maxLength={140}
-                  value={comment}
-                  onChange={handleChange}
+              <Grid
+                sx={{
+                  alignItems: 'center',
+                }}
+              >
+                <Grid
                   sx={{
-                    resize: 'none',
-                    minHeight: '100px',
+                    gap: 1,
                   }}
-                />
+                >
+                  <GroovyHeading
+                    as="h3"
+                    variant="heading.h3"
+                    color="success"
+                    strokeColor="black1"
+                    textAlign="left"
+                    justifyContent="flex-start"
+                    text={['Leave', 'a', 'comment']}
+                  />
+                  <Textarea
+                    maxLength={140}
+                    disabled={response.isSuccess}
+                    value={comment}
+                    onChange={handleChange}
+                    sx={{
+                      resize: 'none',
+                      minHeight: '100px',
+                      color: response.isSuccess ? 'grey5' : 'black',
+                    }}
+                  />
+                </Grid>
                 <Grid
                   sx={{
                     alignItems: 'center',
@@ -95,40 +133,61 @@ const CommentForm: FunctionComponent = () => {
                   <Text
                     variant="small"
                     sx={{
-                      color: 'black',
+                      fontWeight: 'bold',
+                      color: response.color,
                     }}
                   >
-                    {!responseMessage
-                      ? `Your name: ${user.name} will be displayed with the comment.`
-                      : responseMessage}
+                    {response.message}
                   </Text>
                   <Button
-                    disabled={!comment.length || isSubmitting}
+                    disabled={
+                      !comment.length || isSubmitting || response.isSuccess
+                    }
                     onClick={handleSubmit}
                   >
                     Comment
                   </Button>
                 </Grid>
-              </Fragment>
+              </Grid>
             ) : (
-              <Fragment>
-                <Text
+              <Grid
+                sx={{
+                  alignItems: 'center',
+                }}
+              >
+                <Grid
                   sx={{
-                    color: 'black3',
-                    textAlign: 'center',
+                    gap: 1,
                   }}
                 >
-                  Authorization is provided by the slammin’ peeps at{' '}
-                  <Link
-                    href="https://auth0.com/"
-                    target="_blank"
-                    rel="noopener"
+                  <GroovyHeading
+                    as="h3"
+                    variant="heading.h3"
+                    color="success"
+                    strokeColor="black1"
+                    textAlign="center"
+                    justifyContent="center"
+                    text={['Comment']}
+                  />
+                  <Text
+                    as="p"
+                    sx={{
+                      color: 'black3',
+                      textAlign: 'center',
+                    }}
                   >
-                    Auth0
-                  </Link>
-                  ,<br />
-                  login with Twitter to have your say.
-                </Text>
+                    Authorization is provided by the slammin’ peeps at{' '}
+                    <Link
+                      href="https://auth0.com/"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      Auth0
+                    </Link>
+                    ,<br />
+                    login with Twitter to have your say.
+                  </Text>
+                </Grid>
                 <Box
                   sx={{
                     mx: 'auto',
@@ -138,10 +197,10 @@ const CommentForm: FunctionComponent = () => {
                     Login with Twitter
                   </Button>
                 </Box>
-              </Fragment>
+              </Grid>
             )}
           </Fragment>
-        ) : null}
+        )}
       </Grid>
     </Card>
   )
