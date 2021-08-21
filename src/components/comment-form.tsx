@@ -108,8 +108,8 @@ const CommentForm: FunctionComponent = () => {
                     variant="heading.h3"
                     color="success"
                     strokeColor="black1"
-                    textAlign="left"
-                    justifyContent="flex-start"
+                    textAlign={['center', 'left']}
+                    justifyContent={['center', 'flex-start']}
                     text={['Leave', 'a', 'comment']}
                   />
                   <Textarea

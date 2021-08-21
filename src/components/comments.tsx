@@ -13,7 +13,7 @@ const Comments: FunctionComponent = () => {
 
       setComments(response.data.comments)
     } catch (error) {
-      console.log(error)
+      console.warn(error.message)
     }
   }
 

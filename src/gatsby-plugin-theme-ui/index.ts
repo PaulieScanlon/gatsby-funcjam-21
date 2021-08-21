@@ -56,7 +56,7 @@ const theme = {
     '.55rem',
   ],
 
-  fontSizes: ['.85rem', '1rem', '1.8rem', '2.6rem', '2.8rem', '5rem', '6rem'],
+  fontSizes: ['.85rem', '1rem', '1.8rem', '2.6rem', '2.8rem', '5rem', '6.4rem'],
 
   shadows: {
     card: '0px 0px 30px -2px rgba(0,0,0,0.10)',
@@ -105,49 +105,49 @@ const theme = {
     heading: {
       h1: {
         fontSize: [4, 6],
-        letterSpacing: 6,
+        letterSpacing: [4, 6],
         '> span:not(:last-child)': {
-          mr: '14px',
+          mr: ['10px', '14px'],
         },
         span: {
           '&::before': {
-            WebkitTextStrokeWidth: '16px',
+            WebkitTextStrokeWidth: ['10px', '14px'],
           },
         },
       },
       h2: {
-        fontSize: 5,
-        letterSpacing: 5,
+        fontSize: [4, 5],
+        letterSpacing: [4, 5],
         '> span:not(:last-child)': {
-          mr: '14px',
+          mr: ['8px', '12px'],
         },
         span: {
           '&::before': {
-            WebkitTextStrokeWidth: '15px',
+            WebkitTextStrokeWidth: ['8px', '12px'],
           },
         },
       },
       h3: {
-        fontSize: 4,
-        letterSpacing: 4,
+        fontSize: [3, 4],
+        letterSpacing: [3, 4],
         '> span:not(:last-child)': {
-          mr: '12px',
+          mr: ['6px', '10px'],
         },
         span: {
           '&::before': {
-            WebkitTextStrokeWidth: '12px',
+            WebkitTextStrokeWidth: ['6px', '10px'],
           },
         },
       },
       h4: {
-        fontSize: 3,
-        letterSpacing: 3,
+        fontSize: [2, 3],
+        letterSpacing: [2, 3],
         '> span:not(:last-child)': {
-          mr: '10px',
+          mr: ['6px', '10px'],
         },
         span: {
           '&::before': {
-            WebkitTextStrokeWidth: '9px',
+            WebkitTextStrokeWidth: ['6px', '10px'],
           },
         },
       },
@@ -187,6 +187,8 @@ const theme = {
     default: {
       borderRadius: 1,
       cursor: 'pointer',
+      minWidth: 100,
+      mx: 'auto',
       ':hover:not(:disabled)': {
         opacity: 0.9,
       },
@@ -208,11 +210,30 @@ const theme = {
       fontWeight: 'bold',
     },
 
+    secondary: {
+      variant: 'buttons.default',
+      borderStyle: 'solid',
+      borderWidth: '1px',
+      borderColor: 'primary',
+      backgroundColor: 'transparent',
+      color: 'primary',
+      fontWeight: 'bold',
+      ':disabled': {
+        color: 'grey5',
+        cursor: 'not-allowed',
+        backgroundColor: 'black4',
+        borderColor: 'black4',
+      },
+    },
+
     dropdownItem: {
       variant: 'buttons.default',
       borderRadius: 0,
-      backgroundColor: 'grey4',
+      backgroundColor: 'grey3',
       color: 'black1',
+      mx: 'auto',
+      textAlign: 'center',
+      fontWeight: 'bold',
     },
   },
 
