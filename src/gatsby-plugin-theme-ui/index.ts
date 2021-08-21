@@ -250,7 +250,19 @@ const theme = {
     textarea: {
       borderRadius: 0,
       borderColor: 'transparent',
-      backgroundColor: 'grey1',
+      backgroundColor: 'grey2',
+      color: 'black',
+      fontFamily: 'body',
+      p: 3,
+      ':focus': {
+        outline: 'none',
+        boxShadow: 'focus',
+      },
+    },
+    input: {
+      borderRadius: 0,
+      borderColor: 'transparent',
+      backgroundColor: 'grey2',
       color: 'black',
       fontFamily: 'body',
       p: 3,

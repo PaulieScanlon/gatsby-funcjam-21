@@ -6,6 +6,7 @@ import GroovyHeading from '../components/groovy-heading'
 import CommentForm from '../components/comment-form'
 import Comments from '../components/comments'
 import Reactions from '../components/reactions'
+import NewsletterForm from '../components/newsletter-form'
 
 import SvgRepeatingCircleBackground from '../components/svg-repeating-circle-background'
 
@@ -67,7 +68,6 @@ const IndexPage: FunctionComponent = () => {
         as="section"
         sx={{
           position: 'relative',
-          // backgroundColor: 'background',
           py: 5,
         }}
       >
@@ -139,9 +139,7 @@ const IndexPage: FunctionComponent = () => {
                 Peace, love, and granola!
               </Text>
             </Box>
-
             <Reactions />
-
             <Text
               sx={{
                 color: 'background',
@@ -163,6 +161,68 @@ const IndexPage: FunctionComponent = () => {
         <SvgRepeatingCircleBackground backgroundColor="black" opacity={0.4} />
       </Box>
       {/* Reactions --end */}
+
+      {/* Newsletter -- start */}
+      <Box
+        as="section"
+        sx={{
+          position: 'relative',
+          py: 5,
+        }}
+      >
+        <Container>
+          <Grid
+            sx={{
+              gap: 5,
+            }}
+          >
+            <Box>
+              <GroovyHeading
+                as="h2"
+                variant="heading.h2"
+                color="primary"
+                strokeColor="black1"
+                textAlign="center"
+                justifyContent="center"
+                text={['Psych!']}
+              />
+              <Text as="p" sx={{ textAlign: 'center', fontWeight: 'bold' }}>
+                Forms!?! are you trippin'!!,
+                <br />
+                Queen{' '}
+                <Link
+                  href="https://twitter.com/raae"
+                  target="_blank"
+                  rel="noopener"
+                  sx={{ color: 'primary', fontWeight: 'bold' }}
+                >
+                  @raae
+                </Link>{' '}
+                handles my Newsletter coz i’m out to lunch!
+              </Text>
+            </Box>
+            <NewsletterForm />
+            <Text
+              sx={{
+                mx: 'auto',
+              }}
+            >
+              Newsletter stuff is provided by the cool cats at{' '}
+              <Link
+                href="https://convertkit.com/"
+                target="_blank"
+                rel="noopener"
+                sx={{ color: 'primary', fontWeight: 'bold' }}
+              >
+                ConvertKit
+              </Link>{' '}
+              -- w/e
+            </Text>
+          </Grid>
+        </Container>
+        <SvgRepeatingCircleBackground backgroundColor="background" />
+      </Box>
+      {/* Newsletter --end */}
     </Fragment>
   )
 }

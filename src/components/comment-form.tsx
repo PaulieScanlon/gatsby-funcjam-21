@@ -127,7 +127,7 @@ const CommentForm: FunctionComponent = () => {
                 <Grid
                   sx={{
                     alignItems: 'center',
-                    gridTemplateColumns: '1fr auto',
+                    gridTemplateColumns: ['1fr', '1fr auto'],
                   }}
                 >
                   <Text
