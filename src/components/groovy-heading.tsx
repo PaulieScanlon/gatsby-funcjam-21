@@ -38,8 +38,14 @@ const GroovyHeading: FunctionComponent<IGroovyHeadingProps> = ({
       as={as}
       variant={variant}
       sx={{
-        display: 'flex',
-        flexWrap: 'wrap',
+        display: 'grid',
+        gap: [0, 2],
+        placeItems: 'center',
+        gridTemplateColumns: [
+          `repeat(${text.length}, 1f)`,
+          `repeat(${text.length}, 1f)`,
+          `repeat(${text.length}, auto)`,
+        ],
         justifyContent: justifyContent,
         ...sx,
       }}
@@ -61,7 +67,7 @@ const GroovyHeading: FunctionComponent<IGroovyHeadingProps> = ({
                   content: 'attr(data-text)',
                   gridArea: 'text',
                   background: (theme) =>
-                    `no-repeat linear-gradient(${theme.colors[strokeColor]}, ${theme.colors[strokeColor]}) 50% 50%/80% 15%`,
+                    `no-repeat linear-gradient(${theme.colors[strokeColor]}, ${theme.colors[strokeColor]}) 50% 50%/80% 25%`,
                   WebkitTextStrokeColor: (theme) => theme.colors[strokeColor],
                 },
                 color: color,

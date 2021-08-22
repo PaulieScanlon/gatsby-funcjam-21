@@ -184,8 +184,8 @@ const CommentForm: FunctionComponent = () => {
                     >
                       Auth0
                     </Link>
-                    ,<br />
-                    login with Twitter to have your say.
+                    <br />
+                    Login with Twitter to have your say.
                   </Text>
                 </Grid>
                 <Box

@@ -42,7 +42,7 @@ const theme = {
   },
 
   lineHeights: {
-    heading: '1.2em',
+    heading: '1em',
     body: '1.3em',
     alt: '1em',
   },
@@ -57,7 +57,7 @@ const theme = {
     '.55rem',
   ],
 
-  fontSizes: ['.85rem', '1rem', '1.8rem', '2.6rem', '2.8rem', '5rem', '6.4rem'],
+  fontSizes: ['.85rem', '1rem', '1.6rem', '2.6rem', '3rem', '5rem', '6.4rem'],
 
   shadows: {
     card: '0px 0px 30px -2px rgba(0,0,0,0.10)',
@@ -105,11 +105,8 @@ const theme = {
     },
     heading: {
       h1: {
-        fontSize: [4, 6],
-        letterSpacing: [4, 6],
-        '> span:not(:last-child)': {
-          mr: ['10px', '14px'],
-        },
+        fontSize: [5, 6],
+        letterSpacing: [5, 6],
         span: {
           '&::before': {
             WebkitTextStrokeWidth: ['10px', '14px'],
@@ -119,9 +116,6 @@ const theme = {
       h2: {
         fontSize: [4, 5],
         letterSpacing: [4, 5],
-        '> span:not(:last-child)': {
-          mr: ['8px', '12px'],
-        },
         span: {
           '&::before': {
             WebkitTextStrokeWidth: ['8px', '12px'],
@@ -143,9 +137,6 @@ const theme = {
       h4: {
         fontSize: [2, 3],
         letterSpacing: [2, 3],
-        '> span:not(:last-child)': {
-          mr: ['6px', '10px'],
-        },
         span: {
           '&::before': {
             WebkitTextStrokeWidth: ['6px', '10px'],
@@ -155,9 +146,6 @@ const theme = {
       h5: {
         fontSize: 2,
         letterSpacing: 2,
-        '> span:not(:last-child)': {
-          mr: '10px',
-        },
         span: {
           '&::before': {
             WebkitTextStrokeWidth: '7px',
@@ -167,9 +155,6 @@ const theme = {
       h6: {
         fontSize: 1,
         letterSpacing: 1,
-        '> span:not(:last-child)': {
-          mr: '8px',
-        },
         span: {
           '&::before': {
             WebkitTextStrokeWidth: '5px',
@@ -241,7 +226,8 @@ const theme = {
   cards: {
     primary: {
       borderRadius: 0,
-      p: [3, 4],
+      px: [3, 4],
+      py: 4,
       boxShadow: 'card',
       backgroundColor: 'background',
     },

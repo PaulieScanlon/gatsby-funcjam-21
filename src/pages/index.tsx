@@ -19,14 +19,10 @@ const IndexPage: FunctionComponent = () => {
         <Grid
           sx={{
             placeItems: 'center',
-            height: 'canvas',
+            height: ['50vh', 'canvas'],
           }}
         >
-          <Grid
-            sx={{
-              gap: 0,
-            }}
-          >
+          <Grid>
             <GroovyHeading
               as="h1"
               variant="heading.h1"
@@ -70,7 +66,8 @@ const IndexPage: FunctionComponent = () => {
         as="section"
         sx={{
           position: 'relative',
-          py: 6,
+          pt: [5, 6],
+          pb: 5,
         }}
       >
         <Container>
@@ -79,7 +76,7 @@ const IndexPage: FunctionComponent = () => {
               gap: 5,
             }}
           >
-            <Box>
+            <Grid>
               <GroovyHeading
                 as="h2"
                 variant="heading.h2"
@@ -94,8 +91,24 @@ const IndexPage: FunctionComponent = () => {
                 <br />
                 and here’s where they’re from.
               </Text>
-            </Box>
+            </Grid>
             <GeoStats />
+            <Text
+              sx={{
+                mx: 'auto',
+                textAlign: 'center',
+              }}
+            >
+              Location statistics provided by{' '}
+              <Link
+                href="https://developers.google.com/analytics/devguides/reporting/core/v3"
+                target="_blank"
+                rel="noopener"
+                sx={{ color: 'primary', fontWeight: 'bold' }}
+              >
+                Google Analytics Core Reporting API -- v3
+              </Link>
+            </Text>
           </Grid>
         </Container>
         <SvgRepeatingCircleBackground backgroundColor="background" />
@@ -107,7 +120,8 @@ const IndexPage: FunctionComponent = () => {
         as="section"
         sx={{
           position: 'relative',
-          py: 6,
+          pt: [5, 6],
+          pb: 5,
         }}
       >
         <Container>
@@ -116,7 +130,7 @@ const IndexPage: FunctionComponent = () => {
               gap: 5,
             }}
           >
-            <Box>
+            <Grid>
               <GroovyHeading
                 as="h2"
                 variant="heading.h2"
@@ -138,8 +152,25 @@ const IndexPage: FunctionComponent = () => {
                 <br />
                 here’s the faves.
               </Text>
-            </Box>
+            </Grid>
             <TechStats />
+            <Text
+              sx={{
+                color: 'background',
+                mx: 'auto',
+                textAlign: 'center',
+              }}
+            >
+              Technology statistics provided by{' '}
+              <Link
+                href="https://developers.google.com/analytics/devguides/reporting/core/v3"
+                target="_blank"
+                rel="noopener"
+                sx={{ color: 'primary', fontWeight: 'bold' }}
+              >
+                Google Analytics Core Reporting API -- v3
+              </Link>
+            </Text>
           </Grid>
         </Container>
         <SvgRepeatingCircleBackground backgroundColor="black" opacity={0.25} />
@@ -151,7 +182,8 @@ const IndexPage: FunctionComponent = () => {
         as="section"
         sx={{
           position: 'relative',
-          py: 6,
+          pt: [5, 6],
+          pb: 5,
         }}
       >
         <Container>
@@ -160,7 +192,7 @@ const IndexPage: FunctionComponent = () => {
               gap: 5,
             }}
           >
-            <Box>
+            <Grid>
               <GroovyHeading
                 as="h2"
                 variant="heading.h2"
@@ -168,16 +200,32 @@ const IndexPage: FunctionComponent = () => {
                 strokeColor="black1"
                 textAlign="center"
                 justifyContent="center"
-                text={['Jive', "talkin'"]}
+                text={['Jive', 'talkin']}
               />
               <Text as="p" sx={{ textAlign: 'center', fontWeight: 'bold' }}>
                 If you aint just woofin leave a comment,
                 <br />
                 but make it fab -- square biz?
               </Text>
-            </Box>
+            </Grid>
             <CommentForm />
             <Comments />
+            <Text
+              sx={{
+                mx: 'auto',
+                textAlign: 'center',
+              }}
+            >
+              Data storage is provided by the funky folks at{' '}
+              <Link
+                href="https://fauna.com/"
+                target="_blank"
+                rel="noopener"
+                sx={{ color: 'primary', fontWeight: 'bold' }}
+              >
+                Fauna
+              </Link>
+            </Text>
           </Grid>
         </Container>
         <SvgRepeatingCircleBackground backgroundColor="background" />
@@ -189,7 +237,8 @@ const IndexPage: FunctionComponent = () => {
         as="section"
         sx={{
           position: 'relative',
-          py: 6,
+          pt: [5, 6],
+          pb: 5,
         }}
       >
         <Container>
@@ -198,7 +247,7 @@ const IndexPage: FunctionComponent = () => {
               gap: 5,
             }}
           >
-            <Box>
+            <Grid>
               <GroovyHeading
                 as="h2"
                 variant="heading.h2"
@@ -220,12 +269,13 @@ const IndexPage: FunctionComponent = () => {
                 <br />
                 Peace, love, and granola!
               </Text>
-            </Box>
+            </Grid>
             <Reactions />
             <Text
               sx={{
                 color: 'background',
                 mx: 'auto',
+                textAlign: 'center',
               }}
             >
               Data storage is provided by the funky folks at{' '}
@@ -249,7 +299,8 @@ const IndexPage: FunctionComponent = () => {
         as="section"
         sx={{
           position: 'relative',
-          py: 6,
+          pt: [5, 6],
+          pb: 5,
         }}
       >
         <Container>
@@ -258,7 +309,7 @@ const IndexPage: FunctionComponent = () => {
               gap: 5,
             }}
           >
-            <Box>
+            <Grid>
               <GroovyHeading
                 as="h2"
                 variant="heading.h2"
@@ -266,10 +317,10 @@ const IndexPage: FunctionComponent = () => {
                 strokeColor="black1"
                 textAlign="center"
                 justifyContent="center"
-                text={['Psych!']}
+                text={['Psych']}
               />
               <Text as="p" sx={{ textAlign: 'center', fontWeight: 'bold' }}>
-                Forms!?! are you trippin'!!,
+                Forms, are you trippin!
                 <br />
                 Queen{' '}
                 <Link
@@ -282,14 +333,15 @@ const IndexPage: FunctionComponent = () => {
                 </Link>{' '}
                 handles my Newsletter coz i’m out to lunch!
               </Text>
-            </Box>
+            </Grid>
             <NewsletterForm />
             <Text
               sx={{
                 mx: 'auto',
+                textAlign: 'center',
               }}
             >
-              Newsletter stuff is provided by the cool cats at{' '}
+              Newsletter / Mailing Lists are provided by the cool cats at{' '}
               <Link
                 href="https://convertkit.com/"
                 target="_blank"
