@@ -17,9 +17,10 @@
     "url": "git+https://github.com/pauliescanlon/gatsby-groovy-analytics.git"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "gatsby-functions"
   ],
-  "author": "Nattermob",
+  "author": "Paulie Scanlon",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/pauliescanlon/gatsby-groovy-analytics/issues"
