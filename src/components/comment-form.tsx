@@ -30,8 +30,8 @@ const CommentForm: FunctionComponent = () => {
   const [comment, setComment] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [response, setResponse] = useState({
-    color: 'black',
-    message: '',
+    color: 'highlight',
+    message: `⚠️ Comments are moderated and won't appear until I've approved them!`,
     hasError: false,
     isSuccess: false,
   })
