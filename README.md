@@ -1,3 +1,7 @@
+<a  href="https://gatsbygroovyanalytics.gatsbyjs.io/" target="_blank">
+<img src="https://gatsbygroovyanalytics.gatsbyjs.io/images/gatsby-groovy-google-analytics-og-image.jpg" alt="Groovy Analytics" />
+</a>
+
 # Gatsby FuncJam '21
 
 Groovy Analytics is both a classic Gatsby static site requesting location data from the Google Analytics API at build time using `gatsby-node` AND a dynamic application that uses Gatsby Functions to `post` and `get` data from a Fauna database, has user authentication provided by Auth0 and lastly has a simple `post` to ConvertKit to capture users email addresses for (Queen Raae's) Gatsby Newsletter.
@@ -49,7 +53,11 @@ The `src` can be found here: [/src/api/get-all-comments.ts](/src/api/get-all-com
 
 #### **`POST`** | /api/signup-newsletter
 
-`req.body.email` is required
+##### `req.body` params
+
+| Name  | Type   | Required | Summary                 |
+| ----- | ------ | -------- | ----------------------- |
+| email | string | true     | The users email address |
 
 🔗 [https://gatsbygroovyanalytics.gatsbyjs.io/api/signup-newsletter](https://gatsbygroovyanalytics.gatsbyjs.io/api/signup-newsletter)
 
@@ -74,7 +82,12 @@ const handleSubmit = async (email) => {
 
 #### **`POST`** | /api/add-reaction
 
-`req.body.reaction` and `req.body.date` are required
+##### `req.body` params
+
+| Name     | Type   | Required | Summary                             |
+| -------- | ------ | -------- | ----------------------------------- |
+| reaction | string | true     | The Reaction type                   |
+| date     | date   | true     | The Date the reaction was submitted |
 
 🔗 [https://gatsbygroovyanalytics.gatsbyjs.io/api/add-reaction](https://gatsbygroovyanalytics.gatsbyjs.io/api/add-reaction)
 
@@ -90,7 +103,19 @@ Private functions require Twitter login and a `Bearer token` provided by Auth0
 
 #### **`POST`** | /api/add-comment
 
-`req.headers.Authorization` is required
+##### `req.body` params
+
+| Name    | Type   | Required | Summary                            |
+| ------- | ------ | -------- | ---------------------------------- |
+| user    | string | true     | The users name                     |
+| comment | string | true     | The users comment                  |
+| date    | date   | true     | The Date the comment was submitted |
+
+##### `req.headers` params
+
+| Name          | Type   | Required | Summary                |
+| ------------- | ------ | -------- | ---------------------- |
+| Authorization | string | true     | The Auth0 access token |
 
 🔗 [https://gatsbygroovyanalytics.gatsbyjs.io/api/add-comment](https://gatsbygroovyanalytics.gatsbyjs.io/api/add-comment)
 
