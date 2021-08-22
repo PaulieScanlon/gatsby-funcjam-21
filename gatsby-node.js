@@ -49,7 +49,7 @@ const format = (data, key) => {
     .reduce((items, item) => {
       const { name, count } = item
       return {
-        name: key,
+        name: name,
         count: count,
       }
     }, {})
@@ -104,6 +104,7 @@ exports.sourceNodes = async ({
   const stat_device = await ga('ga:deviceCategory')
 
   const city = format(stat_city.data.rows, 'city')
+
   const country = format(stat_country.data.rows, 'country')
   const continent = format(stat_continent.data.rows, 'continent')
   const browser = format(stat_browser.data.rows, 'browser')
