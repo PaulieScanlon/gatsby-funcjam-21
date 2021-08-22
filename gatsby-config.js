@@ -6,7 +6,7 @@ module.exports = {
   siteMetadata: {
     url: `https://gatsbygroovyanalytics.gatsbyjs.io/`,
     title: `Groovy Analytics`,
-    image: `https://gatsbygroovyanalytics.gatsbyjs.io/images/gatsby-groovy-google-analytics-og-image.jpg`,
+    image: `gatsby-groovy-google-analytics-og-image.jpg`,
     description: `Google Analytics | A #FuncJam site by @PaulieScanlon`,
     language: `en-gb`,
     keywords: [`gatsby`, `gatsby-functions`],
