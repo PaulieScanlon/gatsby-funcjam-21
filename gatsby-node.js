@@ -16,77 +16,54 @@ const jwt = new google.auth.JWT(
   'https://www.googleapis.com/auth/analytics.readonly'
 )
 
+const ga = async (dimensions) => {
+  return await new Promise((resolve, reject) => {
+    try {
+      resolve(
+        google.analytics('v3').data.ga.get({
+          auth: jwt,
+          ids: `ga:${process.env.GOOGLE_ANALYTICS_VIEW_ID}`,
+          'start-date': START_DATE,
+          'end-date': END_DATE,
+          metrics: METRIC,
+          dimensions: dimensions,
+          filters: FILTER,
+        })
+      )
+    } catch {
+      reject(result)
+    }
+  })
+}
+
+const format = (data, key) => {
+  return data
+    .map(([name, count]) => {
+      return {
+        name: name,
+        count: count,
+      }
+    })
+    .sort((a, b) => b.count - a.count)
+    .splice(0, 1)
+    .reduce((items, item) => {
+      const { name, count } = item
+      return {
+        name: key,
+        count: count,
+      }
+    }, {})
+}
+
 exports.sourceNodes = async ({
   actions: { createNode },
   createContentDigest,
 }) => {
   await jwt.authorize()
 
-  const geo_locations = await google.analytics('v3').data.ga.get({
-    auth: jwt,
-    ids: `ga:${process.env.GOOGLE_ANALYTICS_VIEW_ID}`,
-    'start-date': START_DATE,
-    'end-date': END_DATE,
-    metrics: METRIC,
-    dimensions: 'ga:city,ga:latitude,ga:longitude,ga:country,ga:countryIsoCode',
-  })
-
-  const stat_city = await google.analytics('v3').data.ga.get({
-    auth: jwt,
-    ids: `ga:${process.env.GOOGLE_ANALYTICS_VIEW_ID}`,
-    'start-date': START_DATE,
-    'end-date': END_DATE,
-    metrics: METRIC,
-    dimensions: 'ga:city',
-    filters: FILTER,
-  })
-
-  const stat_country = await google.analytics('v3').data.ga.get({
-    auth: jwt,
-    ids: `ga:${process.env.GOOGLE_ANALYTICS_VIEW_ID}`,
-    'start-date': START_DATE,
-    'end-date': END_DATE,
-    metrics: METRIC,
-    dimensions: 'ga:country',
-    filters: FILTER,
-  })
-
-  const stat_continent = await google.analytics('v3').data.ga.get({
-    auth: jwt,
-    ids: `ga:${process.env.GOOGLE_ANALYTICS_VIEW_ID}`,
-    'start-date': START_DATE,
-    'end-date': END_DATE,
-    metrics: METRIC,
-    dimensions: 'ga:continent',
-    filters: FILTER,
-  })
-
-  const stat_browser = await google.analytics('v3').data.ga.get({
-    auth: jwt,
-    ids: `ga:${process.env.GOOGLE_ANALYTICS_VIEW_ID}`,
-    'start-date': START_DATE,
-    'end-date': END_DATE,
-    metrics: METRIC,
-    dimensions: 'ga:browser',
-  })
-
-  const stat_os = await google.analytics('v3').data.ga.get({
-    auth: jwt,
-    ids: `ga:${process.env.GOOGLE_ANALYTICS_VIEW_ID}`,
-    'start-date': START_DATE,
-    'end-date': END_DATE,
-    metrics: METRIC,
-    dimensions: 'ga:operatingSystem',
-  })
-
-  const stat_device = await google.analytics('v3').data.ga.get({
-    auth: jwt,
-    ids: `ga:${process.env.GOOGLE_ANALYTICS_VIEW_ID}`,
-    'start-date': START_DATE,
-    'end-date': END_DATE,
-    metrics: METRIC,
-    dimensions: 'ga:deviceCategory',
-  })
+  const geo_locations = await ga(
+    'ga:city,ga:latitude,ga:longitude,ga:country,ga:countryIsoCode'
+  )
 
   const locations = geo_locations.data.rows
     .map(([city, lat, lng, country, countryIsoCode, count]) => {
@@ -119,108 +96,19 @@ exports.sourceNodes = async ({
       })
     })
 
-  const city = stat_city.data.rows
-    .map(([city, count]) => {
-      return {
-        city: city,
-        count: count,
-      }
-    })
-    .sort((a, b) => b.count - a.count)
-    .splice(0, 1)
-    .reduce((items, item) => {
-      const { city, count } = item
-      return {
-        name: city,
-        count: count,
-      }
-    }, {})
+  const stat_city = await ga('ga:city')
+  const stat_country = await ga('ga:country')
+  const stat_continent = await ga('ga:continent')
+  const stat_browser = await ga('ga:browser')
+  const stat_os = await ga('ga:operatingSystem')
+  const stat_device = await ga('ga:deviceCategory')
 
-  const country = stat_country.data.rows
-    .map(([country, count]) => {
-      return {
-        country: country,
-        count: count,
-      }
-    })
-    .sort((a, b) => b.count - a.count)
-    .splice(0, 1)
-    .reduce((items, item) => {
-      const { country, count } = item
-      return {
-        name: country,
-        count: count,
-      }
-    }, {})
-
-  const continent = stat_continent.data.rows
-    .map(([continent, count]) => {
-      return {
-        continent: continent,
-        count: count,
-      }
-    })
-    .sort((a, b) => b.count - a.count)
-    .splice(0, 1)
-    .reduce((items, item) => {
-      const { continent, count } = item
-      return {
-        name: continent,
-        count: count,
-      }
-    }, {})
-
-  const browser = stat_browser.data.rows
-    .map(([browser, count]) => {
-      return {
-        browser: browser,
-        count: count,
-      }
-    })
-    .sort((a, b) => b.count - a.count)
-    .splice(0, 1)
-    .reduce((items, item) => {
-      const { browser, count } = item
-      return {
-        name: browser,
-        count: count,
-      }
-    }, {})
-
-  const os = stat_os.data.rows
-    .map(([os, count]) => {
-      return {
-        os: os,
-        count: count,
-      }
-    })
-    .sort((a, b) => b.count - a.count)
-    .splice(0, 1)
-    .reduce((items, item) => {
-      const { os, count } = item
-      return {
-        name: os,
-        count: count,
-      }
-    }, {})
-
-  const device = stat_device.data.rows
-    .map(([device, count]) => {
-      return {
-        device: device,
-        count: count,
-      }
-    })
-    .sort((a, b) => b.count - a.count)
-    .splice(0, 1)
-    .reduce((items, item) => {
-      const { device, count } = item
-      return {
-        name: device,
-        count: count,
-      }
-      return items
-    }, {})
+  const city = format(stat_city.data.rows, 'city')
+  const country = format(stat_country.data.rows, 'country')
+  const continent = format(stat_continent.data.rows, 'continent')
+  const browser = format(stat_browser.data.rows, 'browser')
+  const os = format(stat_os.data.rows, 'os')
+  const device = format(stat_device.data.rows, 'device')
 
   createNode({
     city: city,
