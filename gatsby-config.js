@@ -4,12 +4,12 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    url: ``,
+    url: `https://gatsbygroovyanalytics.gatsbyjs.io/`,
     title: `Groovy Analytics`,
-    image: ``,
-    description: ``,
-    language: ``,
-    keywords: ``,
+    image: `https://gatsbygroovyanalytics.gatsbyjs.io/images/gatsby-groovy-google-analytics-og-image.jpg`,
+    description: `Google Analytics | A #FuncJam site by @PaulieScanlon`,
+    language: `en-gb`,
+    keywords: [`gatsby`, `gatsby-functions`],
   },
   plugins: [
     {

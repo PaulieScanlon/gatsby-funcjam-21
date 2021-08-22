@@ -25,8 +25,8 @@ const Header: FunctionComponent = () => {
           as="div"
           variant="heading.h5"
           text={['GA']}
-          strokeColor="black"
-          color="primary"
+          strokeColor="primary"
+          color="secondary"
         />
       </Box>
       <Box
