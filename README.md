@@ -1,35 +1,122 @@
 # Gatsby FuncJam '21
 
-This example shows how to build a form with [react-hook-form](https://react-hook-form.com/) that submits to a Gatsby Function.
+Groovy Analytics is both a classic Gatsby static site requesting location data from the Google Analytics API at build time using `gatsby-node` AND a dynamic application that uses Gatsby Functions to `post` and `get` data from a Fauna database, has user authentication provided by Auth0 and lastly has a simple `post` to ConvertKit to capture users email addresses for (Queen Raae's) Gatsby Newsletter.
 
-1.  **Start developing.**
+**See the demo site here:** [🕺 Groovy Analytics](https://gatsbygroovyanalytics.gatsbyjs.io/)
 
-    To get started clone this repo locally and run `npm install` to add all necessary packages.
+<br />
 
-    ```shell
-    cd examples/functions-basic-form
-    npm install
-    npm run develop
-    ```
+## ⚙️ The Functions
 
-2.  **Open the code and start customizing!**
+There are two types of functions in this site: `public` and `private`. All `GET` requests are public, but one `POST` request is private.
 
-    Your site is now running at http://localhost:8000! You can use the UI on the index page to test the functions or directly access them at http://localhost:8000/api/form
+<br />
 
-    Try editing the function in `src/api/form.ts` or form at `src/pages/index.js`
+### 🧑‍🤝‍🧑 Public Functions
 
-3.  **Deploy**
+These can be hit from the browser address bar and will return a `JSON` object.
 
-You can deploy this example on Gatsby Cloud by copying the example into a new repo and [connecting that to Gatsby Cloud](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/deploying-to-gatsby-cloud/#set-up-an-existing-gatsby-site).
+<br />
 
-## Submission Checklist
+#### **`GET`** | /api/get-all-reactions
 
-- [ ] Add installation documentation to the README
-- [ ] Update the `/api` folder with your function
-- [ ] Submit your theme at https://gatsbyjs.com/func-jam-21/
+🔗 [https://gatsbygroovyanalytics.gatsbyjs.io/api/get-all-reactions](https://gatsbygroovyanalytics.gatsbyjs.io/api/get-all-reactions)
 
-## Helpful Links
+The `src` can be found here: [/src/api/get-all-reactions.ts](/src/api/get-all-reactions.ts)
 
-Read the Gatsby [functions docs](https://www.gatsbyjs.com/docs/reference/functions/).
-Check out this video all about Gatsby functions
-Take a look at the Functions Use Cases over [here](https://www.gatsbyjs.com/products/cloud/functions/).
+##### Example axios `GET` request
+
+```javascript
+const getAllReactions = async () => {
+  try {
+    const response = await axios('/api/get-all-reactions')
+    console.log(response.data.reactions)
+  } catch (error) {
+    console.warn(error.message)
+  }
+}
+```
+
+<br />
+
+#### **`GET`** | /api/get-all-comments
+
+🔗 [https://gatsbygroovyanalytics.gatsbyjs.io/api/get-all-comments](https://gatsbygroovyanalytics.gatsbyjs.io/api/get-all-comments)
+
+The `src` can be found here: [/src/api/get-all-comments.ts](/src/api/get-all-comments.ts)
+
+<br />
+
+#### **`POST`** | /api/signup-newsletter
+
+`req.body.email` is required
+
+🔗 [https://gatsbygroovyanalytics.gatsbyjs.io/api/signup-newsletter](https://gatsbygroovyanalytics.gatsbyjs.io/api/signup-newsletter)
+
+The `src` can be found here: [/src/api/signup-newsletter.ts](/src/api/signup-newsletter.ts)
+
+##### Example axios `POST` request with `req.body.email`
+
+```javascript
+const handleSubmit = async (email) => {
+  try {
+    const response = await axios.post('/api/signup-newsletter', {
+      email: email,
+    })
+    console.log(response.data.message)
+  } catch (error) {
+    console.warn(error.message)
+  }
+}
+```
+
+<br />
+
+#### **`POST`** | /api/add-reaction
+
+`req.body.reaction` and `req.body.date` are required
+
+🔗 [https://gatsbygroovyanalytics.gatsbyjs.io/api/add-reaction](https://gatsbygroovyanalytics.gatsbyjs.io/api/add-reaction)
+
+The `src` can be found here: [/src/api/add-reaction.ts](/src/api/add-reaction.ts)
+
+<br />
+
+### 🔐 Private Functions
+
+Private functions require Twitter login and a `Bearer token` provided by Auth0
+
+<br />
+
+#### **`POST`** | /api/add-comment
+
+`req.headers.Authorization` is required
+
+🔗 [https://gatsbygroovyanalytics.gatsbyjs.io/api/add-comment](https://gatsbygroovyanalytics.gatsbyjs.io/api/add-comment)
+
+The `src` can be found here: [/src/api/add-comment.ts](/src/api/add-comment.ts)
+
+##### Example axios `POST` request with `req.headers`
+
+```javascript
+const handleSubmit = async (user, comment) => {
+  try {
+    const response = await axios.post(
+      '/api/add-comment',
+      {
+        user: user.name,
+        comment: comment,
+        date: new Date(),
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+    )
+    console.log(response.data.message)
+  } catch (error) {
+    console.warn(error.message)
+  }
+}
+```
