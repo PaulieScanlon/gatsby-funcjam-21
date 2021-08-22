@@ -9,8 +9,8 @@ Groovy Analytics is both a classic Gatsby static site requesting location data f
 - Get all Reactions stored in Fauna Database
 - Get all Comments stored in Fauna Database
 - Post a Reaction to Fauna Database
-- Post a Comment to Fauna Data (with server-side Authentication)
-- Post to Convertkit for Newsletter signups
+- Post a Comment to Fauna Database (with server-side Authentication)
+- Post to Convertkit for Newsletter signup
 
 ## 👀 Live Demo
 
@@ -213,3 +213,46 @@ We covered Comments on Week 4 of [#GatsbySummerFunctions](https://twitter.com/ha
 [🔴 Poll and display live data on your site · #GatsbySummerFunctions · Week 4](https://youtu.be/VoKiISuvvKQ)
 
 ![Week 4](https://i.ytimg.com/vi/C-Ct9QmN6tM/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBfM0Uw7XPYIPyMI1XUIoU92_uv9A)
+
+<br />
+<br />
+
+## Everything I do goes into everything I do.
+
+Groovy Analytics was the result of 26hrs work however, there are a number of areas where I borrowed code from previous projects, blog post demos or work I'd completed in preparation for the [Nattermob Friday night streams](https://www.youtube.com/playlist?list=PL9W-8hhRoLoN7axEFJQ17rJvk2KTiM2GP).
+
+- Three.js Globe -- This came from a tutorial I wrote for Smashing Magazine : [Gatsby Serverless Functions And The International Space Station](https://www.smashingmagazine.com/2021/07/gatsby-serverless-functions-international-space-station/)
+
+- Google Analytics Build Time Data -- Whilst this will probably make a blog post all on it's own the fundamental methods for fetching data from a remote source and pumping it into Gatsby's Data Layer can been seen in this post: [Add data to Gatsby's GraphQL layer using sourceNodes](https://paulie.dev/posts/2021/07/gatsby-source-nodes/)
+
+- Auth0 Authentication and Fauna Data Storage for comments -- This can be seen on the following episodes of [#GatsbySummerFunctions](https://twitter.com/hashtag/gatsbysummerfunctions)
+
+  - [Limit usage to visitors who have logged in with auth · #GatsbySummerFunctions · Week 3](https://youtu.be/9wGUZa2AWSU)
+  - [Poll and display live data on your site · #GatsbySummerFunctions · Week 4](https://youtu.be/C-Ct9QmN6tM)
+
+- Fauna Data Storage for reactions -- This can be seen on this episode of [#GatsbySummerFunctions](https://twitter.com/hashtag/gatsbysummerfunctions) : (Gather reactions (claps, hearts or votes) from visitors · #GatsbySummerFunctions · Week 2)[https://youtu.be/xDpvE1c_gmo]
+
+- Signup Newsletters with ConvertKit -- This was covered on this episode of [#GatsbySummerFunctions](https://twitter.com/hashtag/gatsbysummerfunctions) : [Collect email addresses (and more) from visitors · #GatsbySummerFunctions · Week 1](https://youtu.be/TWLY4VEPw6E)
+
+... and if you're looking for a more gentle introduction to Gatsby Functions have a watch of Week 0 of [#GatsbySummerFunctions](https://twitter.com/hashtag/gatsbysummerfunctions)
+where we built a Slot Machine : [Build an emojii slot machine with a #GatsbyJS Serverless Function · #GatsbySummerFunctions](https://youtu.be/Md07LbVlxGI)
+
+## References
+
+Here are the references I used to create Groovy Analytics
+
+- The Reaction icons came form my Open Source project [React Svg Bubble Slider](https://react-svg-bubble-slider.netlify.app/)
+
+- The pattern for the section background came from: [https://www.heropatterns.com/](https://www.heropatterns.com/)
+
+- The Google Analytics Core Reporting API can be seen here: [Core Reporting API - Reference Guide ](https://developers.google.com/analytics/devguides/reporting/core/v3/reference)
+- There's also this handy Google Analytics Metric Explorer: [UA Dimensions & Metrics Explorer](https://ga-dev-tools.web.app/dimensions-metrics-explorer/)
+
+-- And the groovy font I used is:
+
+- [Gv. time](https://www.fontspace.com/gv-time-font-f56368)
+
+## Me
+
+- I can be found on Twitter: [@PaulieScanlon](https://twitter.com/PaulieScanlon)
+- My blog where you'll find all manner of Gatsby related posts is here: [https://paulie.dev/](https://paulie.dev/)
