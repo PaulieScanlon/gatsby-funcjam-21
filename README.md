@@ -99,7 +99,7 @@ const handleSubmit = async (email) => {
 }
 ```
 
-## 🏖️ Summer Functions
+### 🏖️ Summer Functions
 
 We covered Newsletters on Week 1 of [#GatsbySummerFunctions](https://twitter.com/hashtag/gatsbysummerfunctions)
 
@@ -139,7 +139,7 @@ const handleSubmit = async (reaction) => {
 }
 ```
 
-## 🏖️ Summer Functions
+### 🏖️ Summer Functions
 
 We covered Reactions on Week 2 of [#GatsbySummerFunctions](https://twitter.com/hashtag/gatsbysummerfunctions)
 
@@ -200,7 +200,7 @@ const handleSubmit = async (user, comment) => {
 }
 ```
 
-## 🏖️ Summer Functions
+### 🏖️ Summer Functions
 
 We covered Auth0 Authentication on Week 3 of [#GatsbySummerFunctions](https://twitter.com/hashtag/gatsbysummerfunctions)
 
