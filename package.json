@@ -2,7 +2,7 @@
   "name": "groovy-analytics",
   "version": "1.0.0",
   "private": true,
-  "description": "Google Analytics + Auth0 Authenticated Reactions",
+  "description": "Google Analytics | A #FuncJam site by @PaulieScanlon",
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
