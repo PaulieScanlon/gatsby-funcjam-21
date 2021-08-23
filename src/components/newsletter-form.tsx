@@ -32,7 +32,7 @@ const NewsletterForm: FunctionComponent = () => {
     try {
       const validate = await schema.validate({ email: inputValue })
       setResponse({
-        color: 'highlight',
+        color: 'tertiary',
         message: 'Email is valid -- Submitting',
         hasError: false,
         isSuccess: true,

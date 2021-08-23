@@ -1,6 +1,13 @@
+import { GatsbyFunctionRequest, GatsbyFunctionResponse } from 'gatsby'
 import axios from 'axios'
 
-export default async function handler(req, res) {
+export default async function handler(
+  req: GatsbyFunctionRequest,
+  res: GatsbyFunctionResponse
+) {
+  if (req.method !== 'POST') {
+    res.status(400).json({ message: 'req.method should be POST' })
+  }
   const { email } = req.body
 
   if (!email) {

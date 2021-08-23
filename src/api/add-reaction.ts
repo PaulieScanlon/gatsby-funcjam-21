@@ -7,6 +7,10 @@ export default async function handler(
 ) {
   const { reaction, date } = req.body
 
+  if (req.method !== 'POST') {
+    res.status(400).json({ message: 'req.method should be POST' })
+  }
+
   if (!reaction || !date) {
     res.status(400).json({ message: 'Reaction and Date are required!' })
   } else {

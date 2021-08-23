@@ -8,6 +8,10 @@ export default async function handler(
   req: GatsbyFunctionRequest,
   res: GatsbyFunctionResponse
 ) {
+  if (req.method !== 'GET') {
+    res.status(400).json({ message: 'req.method should be GET' })
+  }
+
   const q = faunadb.query
 
   const client = new faunadb.Client({ secret: process.env.FAUNA_KEY })
