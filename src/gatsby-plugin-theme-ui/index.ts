@@ -30,15 +30,15 @@ const theme = {
 
   fonts: {
     heading: 'GvTime-Regular',
-    body: 'Roboto-Regular',
-    bold: 'Roboto-Bold',
+    body: 'system-ui, Roboto-Regular',
+    bold: 'system-ui, Roboto-Bold',
     alt: 'Circula-Medium',
   },
 
   fontWeights: {
     heading: 700,
     body: 400,
-    bold: 700,
+    bold: 600,
   },
 
   lineHeights: {
@@ -167,6 +167,16 @@ const theme = {
   links: {
     color: 'primary',
     fontWeight: 'bold',
+    nav: {
+      fontWeight: 'bold',
+      p: 2,
+      borderRadius: 0,
+      backgroundColor: 'backgroubd',
+      transition: '.2s linear background-color, .2s linear color',
+      ':hover': {
+        backgroundColor: 'grey3',
+      },
+    },
   },
 
   buttons: {

@@ -1,6 +1,6 @@
 import React, { Fragment, FunctionComponent } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
-import { Flex, Box, Avatar } from 'theme-ui'
+import { Flex, Grid, Box, Avatar, NavLink } from 'theme-ui'
 import { MenuItem } from '@reach/menu-button'
 
 import GroovyHeading from './groovy-heading'
@@ -29,30 +29,51 @@ const Header: FunctionComponent = () => {
           color="secondary"
         />
       </Box>
-      <Box
+      <Grid
         sx={{
-          mt: 1,
-          position: 'relative',
+          alignItems: 'center',
+          gridTemplateColumns: 'auto auto auto',
+          gap: [0, 2],
         }}
       >
-        {!isLoading ? (
-          <Fragment>
-            {isAuthenticated ? (
-              <Fragment>
-                <Dropdown trigger={<Avatar src={user.picture} />}>
-                  <MenuItem
-                    onSelect={() =>
-                      logout({ returnTo: window.location.origin })
-                    }
-                  >
-                    Logout
-                  </MenuItem>
-                </Dropdown>
-              </Fragment>
-            ) : null}
-          </Fragment>
-        ) : null}
-      </Box>
+        <NavLink
+          href="https://www.gatsbyjs.com/func-jam-21/"
+          target="_blank"
+          rel="noopener"
+        >
+          FuncJam '21
+        </NavLink>
+        <NavLink
+          href="https://github.com/PaulieScanlon/gatsby-groovy-analytics"
+          target="_blank"
+          rel="noopener"
+        >
+          GitHub
+        </NavLink>
+        <Box
+          sx={{
+            position: 'relative',
+          }}
+        >
+          {!isLoading ? (
+            <Fragment>
+              {isAuthenticated ? (
+                <Fragment>
+                  <Dropdown trigger={<Avatar src={user.picture} />}>
+                    <MenuItem
+                      onSelect={() =>
+                        logout({ returnTo: window.location.origin })
+                      }
+                    >
+                      Logout
+                    </MenuItem>
+                  </Dropdown>
+                </Fragment>
+              ) : null}
+            </Fragment>
+          ) : null}
+        </Box>
+      </Grid>
     </Flex>
   )
 }
