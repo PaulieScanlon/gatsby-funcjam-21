@@ -230,7 +230,7 @@ Groovy Analytics was the result of 26hrs work however, there are a number of are
   - [Limit usage to visitors who have logged in with auth · #GatsbySummerFunctions · Week 3](https://youtu.be/9wGUZa2AWSU)
   - [Poll and display live data on your site · #GatsbySummerFunctions · Week 4](https://youtu.be/C-Ct9QmN6tM)
 
-- Fauna Data Storage for reactions -- This can be seen on this episode of [#GatsbySummerFunctions](https://twitter.com/hashtag/gatsbysummerfunctions) : (Gather reactions (claps, hearts or votes) from visitors · #GatsbySummerFunctions · Week 2)[https://youtu.be/xDpvE1c_gmo]
+- Fauna Data Storage for reactions -- This can be seen on this episode of [#GatsbySummerFunctions](https://twitter.com/hashtag/gatsbysummerfunctions) : [Gather reactions (claps, hearts or votes) from visitors · #GatsbySummerFunctions · Week 2](https://youtu.be/xDpvE1c_gmo)
 
 - Signup Newsletters with ConvertKit -- This was covered on this episode of [#GatsbySummerFunctions](https://twitter.com/hashtag/gatsbysummerfunctions) : [Collect email addresses (and more) from visitors · #GatsbySummerFunctions · Week 1](https://youtu.be/TWLY4VEPw6E)
 
