@@ -55,6 +55,22 @@ const IndexPage: FunctionComponent = () => {
                 @PaulieScanlon
               </Link>
             </Text>
+            <Text
+              sx={{
+                color: 'background',
+                textAlign: 'center',
+              }}
+            >
+              You can read all about how I made this site over on my blog{' '}
+              <Link
+                href="https://paulie.dev/posts/2021/08/gatsby-func-jam-21/"
+                target="_blank"
+                rel="noopener"
+                sx={{ color: 'tertiary', fontWeight: 'bold' }}
+              >
+                https://paulie.dev
+              </Link>
+            </Text>
           </Grid>
         </Grid>
       </Container>
